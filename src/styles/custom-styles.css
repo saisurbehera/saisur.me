@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply max-h-screen overflow-hidden text-base antialiased;
+  }
+
+  /* handles safari overscroll background color */
+  body:after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    z-index: -1;
+    @apply bg-off-white dark:bg-off-black;
+  }
+
+  /* Inflection Font */
+  @font-face {
+    font-family: 'grenette_regular';
+    src: url('../../public/static/fonts/grenette-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Apple II Mono */
+  /* format is tff */
+  @font-face {
+    font-family: 'apple2mono';
+    src: url('../../public/static/fonts/apple2mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Invert highlight colors */
+  ::selection {
+    background-color: #6366f1;
+    color: #f5f5f5;
+    filter: invert(1);
+  }
+}
+
+/* Your own custom utilities */
+@layer utilities {
+  .text-primary {
+    @apply text-gray-900 dark:text-slate-200;
+  }
+
+  .text-secondary {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-tertiary {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .text-quaternary {
+    @apply text-gray-400 dark:text-gray-500;
+  }
+
+  .bg-elevated {
+    @apply bg-gray-400 bg-opacity-5 dark:bg-gray-50;
+  }
+
+  .filter-none {
+    filter: none;
+  }
+
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+
+  .filter-saturate {
+    -webkit-filter: brightness(105%) saturate(200%) contrast(1);
+    filter: brightness(105%) saturate(200%) contrast(1);
+  }
+
+  .filter-blur {
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .highlight-link-hover {
+    @apply -mx-0.5 rounded-sm bg-opacity-20 px-0.5 text-gray-900 no-underline dark:bg-opacity-100 dark:text-gray-300 md:hover:bg-yellow-400 md:hover:bg-opacity-30 md:dark:hover:bg-yellow-500 md:dark:hover:bg-opacity-100 md:dark:hover:text-gray-900;
+  }
+
+  .highlight-link {
+    @apply -mx-0.5 bg-opacity-20 px-0.5 text-gray-900 dark:bg-gray-100 dark:bg-opacity-20 dark:text-gray-300 md:hover:bg-opacity-30 md:dark:hover:bg-yellow-500 md:dark:hover:bg-opacity-100 md:dark:hover:text-gray-900;
+  }
+
+  .blink {
+    animation: blink-animation 1.5s steps(2, start) infinite;
+    -webkit-animation: blink-animation 1.5s steps(2, start) infinite;
+  }
+
+  .font-grenette {
+    font-family: 'grenette_regular', 'dazzed_medium', sans-serif;
+  }
+
+  .font-apple2mono {
+    font-family: 'apple2mono', monospace;
+  }
+
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
