@@ -32,7 +32,7 @@ export function Nav() {
               Portfolio
             </a>
           </Link>
-          <Link href="https://saisur-matcha-inky.vercel.app/">
+          <Link href="https://eternalhorizons.org/">
             <a target="_blank" rel="noopener noreferrer" className="inline-block mr-3 md:mr-8 text-primary hover:text-indigo-500">
               Notes
             </a>
