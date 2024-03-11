@@ -109,7 +109,7 @@ export function Home() {
             <SectionContent>
               <Image
                 priority
-                src="/static/img/nyc.png"
+                src="/static/meta/nyc.png"
                 width={1290}
                 height={893}
                 layout="responsive"
