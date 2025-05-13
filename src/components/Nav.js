@@ -27,17 +27,12 @@ export function Nav() {
       </div>
       <div className="flex items-center w-auto">
         <div className="text-sm md:text-base font-normal md:font-medium md:flex-grow">
-          <Link href="https://saisur.myportfolio.com/work">
-            <a className="inline-block mr-3 md:mr-8 text-primary hover:text-indigo-500">
-              Portfolio
-            </a>
-          </Link>
           <Link href="https://eternalhorizons.org/">
             <a target="_blank" rel="noopener noreferrer" className="inline-block mr-3 md:mr-8 text-primary hover:text-indigo-500">
               Notes
             </a>
           </Link>
-          <Link href="static/pdf/Sai_new_resume.pdf">
+          <Link href="static/pdf/sai_resume_facets_may25.pdf">
             <a target="_blank" rel="noopener noreferrer" className="inline-block mr-3 text-primary hover:text-indigo-500">
               Resume
             </a>

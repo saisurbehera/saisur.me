@@ -62,7 +62,7 @@ export function Home() {
             <SectionContent>
               <div className="prose -mb-8">
                 <p>
-                  Hello, My name is Sai! I am an Machine Learning Engineer for Walmart's Algorithmic Search Re-rank Team. I specifically work on cold start and CTR prediction models. </p><p> I graduated from Columbia University with a Masters in Computer Science and my undergraduate degree in Information from the University of Michigan.
+                  Hello, My name is Sai! I am an Machine Learning Engineer for Walmart's Algorithmic Search Re-rank Team. I specifically work on Synthetic data generation for navigation </p><p> I graduated from Columbia University with a Masters in Computer Science and my undergraduate degree in Information from the University of Michigan.
                   </p><p>
                    On my freetime, i work on my projects, read and write about philosophy, and listen to music. 
                 </p>
@@ -70,7 +70,8 @@ export function Home() {
                   In the past, I've worked on:
                 </p>
                 <ul>
-                  <li> Price prediction algorithms at <a href="https://www.walmart.com/">Walmart</a></li>
+                  <li> Search experience and navigation focussing on Synthetic Data at <a href="https://www.walmart.com/">Walmart Search</a></li>
+                  <li> Price prediction algorithms, cold start and CTR prediction models at <a href="https://www.walmart.com/">Walmart Search</a></li>
                   <li> Geo-coding algorithms at <a href="https://www.inquirer.com/">Philadelpha Inquier</a> and Columbia Journalism</li>
                   <li> Information Extraction pipelines at <a href="https://www.amfam.com/">American Family Insurance</a></li>
                   <li> Relation Extraction pipelines at <a href="https://www.mindgram.ai/">Mindgram</a></li>
