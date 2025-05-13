@@ -62,7 +62,7 @@ export function Home() {
             <SectionContent>
               <div className="prose -mb-8">
                 <p>
-                  Hello, My name is Sai! I am an Machine Learning Engineer for Walmart's Algorithmic Search Re-rank Team. I specifically work on Synthetic data generation for navigation </p><p> I graduated from Columbia University with a Masters in Computer Science and my undergraduate degree in Information from the University of Michigan.
+                  Hello, My name is Sai! I am an Machine Learning Engineer for Walmart's Algorithmic Search Experience Team. I specifically work on Synthetic data generation for navigation </p><p> I graduated from Columbia University with a Masters in Computer Science and my undergraduate degree in Information from the University of Michigan.
                   </p><p>
                    On my freetime, i work on my projects, read and write about philosophy, and listen to music. 
                 </p>
