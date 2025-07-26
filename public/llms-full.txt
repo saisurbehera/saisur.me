@@ -1,0 +1,28 @@
+--------------------------------------------------------------------------------
+title: "Sai Surbehera"
+description: Machine Learning Engineer at Walmart specializing in synthetic data generation for navigation, with experience in search algorithms, price prediction, geo-coding, information extraction, relation extraction, knowledge graphs, summarization, and fraud detection; Columbia University graduate based in NYC.
+last_updated: "July 26, 2025"
+source: "https://www.saisur.me/"
+generated_by: "lapis trylapis.com"
+--------------------------------------------------------------------------------
+
+# Sai Surbehera
+
+Sai Surbehera is a Machine Learning Engineer for Walmart's Algorithmic Search Experience Team, specializing in synthetic data generation for navigation. Holds a Master’s degree in Computer Science from Columbia University and a Bachelor’s degree in Information from the University of Michigan. Professional experience includes:
+
+- Synthetic data generation for navigation and search experience optimization at Walmart Search; responsibilities include developing and deploying algorithms to enhance search relevance and user navigation using artificial datasets.
+- Price prediction algorithms, cold start models, and click-through rate (CTR) prediction models at Walmart Search; work involves building and refining machine learning models to forecast product prices and predict user engagement in e-commerce search.
+- Geo-coding algorithms at Philadelphia Inquirer and Columbia Journalism; developed systems to convert addresses and location data into geographic coordinates for journalistic and data analysis applications.
+- Information extraction pipelines at American Family Insurance; designed and implemented automated systems to extract structured information from unstructured insurance documents.
+- Relation extraction pipelines at Mindgram; built machine learning models to identify and extract relationships between entities in text for mental health and wellness applications.
+- Knowledge graph search and entity linking systems at University of Michigan Giving; engineered solutions for searching and linking entities within large-scale knowledge graphs to support philanthropic initiatives.
+- Theme-matching algorithms and text summarization at University of Stellenbosch; created algorithms to match textual content to predefined themes and generate concise summaries for academic and research purposes.
+- Fraud detection using GraphSage at AAA Insurance; applied graph neural networks to detect fraudulent activities in insurance data, leveraging relational patterns and network structures.
+
+Personal interests include working on independent projects, reading and writing about philosophy, and listening to music during free time.
+
+Contact information:  
+- Email: ss6365@columbia.com  
+- GitHub: https://github.com/saisurbehera
+
+Primary location: New York City (NYC).
