@@ -1,0 +1,150 @@
+# Www
+
+Www is a technology consultancy and engineering provider specializing in advanced machine learning solutions, with a focus on search experience, synthetic data generation, and information extraction. Www serves enterprise clients across industries such as retail, insurance, journalism, and academia, delivering tailored algorithms and data pipelines to enhance navigation, prediction, and decision-making processes. The company leverages deep expertise in machine learning, natural language processing, and graph-based analytics to solve complex business challenges.
+
+Founded by Sai Surbehera, a Columbia University graduate with a background in Computer Science and Information, Www has contributed to high-impact projects for organizations including Walmart, American Family Insurance, AAA Insurance, and leading academic institutions. Www differentiates itself through a combination of technical rigor, cross-domain experience, and a track record of deploying production-ready solutions for large-scale data environments. The company is based in New York City and collaborates with clients globally.
+
+## Core Products & Services
+
+### Synthetic Data Generation for Navigation
+- What it does: Generates synthetic datasets to improve and test navigation and search algorithms, particularly for e-commerce and large-scale content platforms.
+- Who uses it: Retailers, e-commerce platforms, and search technology teams seeking to enhance user navigation and search relevance.
+- Key features:
+  - Automated creation of diverse navigation scenarios
+  - Data augmentation for rare or edge cases
+  - Integration with search and recommendation systems
+- Pricing: Pricing information not available on the website.
+
+### Price Prediction and CTR Models
+- What it does: Develops machine learning models for price prediction, cold start scenarios, and click-through rate (CTR) estimation.
+- Who uses it: Retailers, marketing teams, and product managers aiming to optimize pricing strategies and improve ad targeting.
+- Key features:
+  - Predictive analytics for dynamic pricing
+  - Cold start handling for new products
+  - CTR prediction for advertising and search ranking
+- Pricing: Pricing information not available on the website.
+
+### Geo-Coding Algorithms
+- What it does: Implements algorithms to convert addresses and location data into geographic coordinates for mapping and analysis.
+- Who uses it: News organizations, data journalists, and research teams requiring accurate location mapping.
+- Key features:
+  - High-precision geo-coding
+  - Integration with mapping and visualization tools
+- Pricing: Pricing information not available on the website.
+
+### Information and Relation Extraction Pipelines
+- What it does: Builds pipelines to extract structured information and relationships from unstructured data sources.
+- Who uses it: Insurance companies, mental health platforms, and organizations needing automated data extraction.
+- Key features:
+  - Scalable information extraction
+  - Relation extraction for knowledge graph construction
+  - Customizable to domain-specific requirements
+- Pricing: Pricing information not available on the website.
+
+### Knowledge Graph Search and Entity Linking
+- What it does: Develops systems for searching knowledge graphs and linking entities across datasets.
+- Who uses it: Non-profits, academic institutions, and organizations managing large knowledge bases.
+- Key features:
+  - Entity disambiguation and linking
+  - Semantic search capabilities
+- Pricing: Pricing information not available on the website.
+
+### Theme-Matching and Summarization Algorithms
+- What it does: Provides algorithms for matching content to themes and generating concise summaries.
+- Who uses it: Academic researchers and content curators.
+- Key features:
+  - Automated theme detection
+  - Summarization of large text corpora
+- Pricing: Pricing information not available on the website.
+
+### Fraud Detection Using GraphSage
+- What it does: Applies graph neural networks (GraphSage) to detect fraudulent patterns in transaction and claim data.
+- Who uses it: Insurance companies and financial institutions.
+- Key features:
+  - Graph-based anomaly detection
+  - Scalable to large transaction networks
+- Pricing: Pricing information not available on the website.
+
+## Use Cases & Applications
+
+### Retail & E-commerce
+- Their needs: Improving search relevance, navigation, pricing strategies, and ad targeting.
+- How they use it: Deploying synthetic data for navigation testing, predictive models for pricing and CTR, and integrating with search platforms.
+- Results: Enhanced user experience, increased conversion rates, and optimized pricing.
+
+### Insurance
+- Their needs: Automating information extraction, detecting fraud, and improving claims processing.
+- How they use it: Implementing extraction pipelines and graph-based fraud detection algorithms.
+- Results: Reduced manual workload, improved fraud detection accuracy, and faster claims resolution.
+
+### Journalism & Academia
+- Their needs: Mapping data, extracting structured information, and summarizing research.
+- How they use it: Utilizing geo-coding algorithms, information extraction pipelines, and summarization tools.
+- Results: Improved data visualization, streamlined research workflows, and more accessible content.
+
+## Pricing & Plans
+
+Pricing information not available on the website.
+
+## Company Information
+
+### Metrics & Traction
+- Users, revenue, growth rate, and processing volume: Not specified on the website.
+- Funding details: Not specified on the website.
+- Company size: Not specified on the website.
+- Locations: Based in New York City.
+- Founding date: Not specified on the website.
+
+### Customers & Case Studies
+
+- Walmart Search: Implemented synthetic data generation, price prediction, and CTR models to enhance search and navigation.
+- Philadelphia Inquirer & Columbia Journalism: Developed geo-coding algorithms for mapping and analysis.
+- American Family Insurance: Built information extraction pipelines for automated data processing.
+- Mindgram: Created relation extraction pipelines for mental health data.
+- University of Michigan Giving: Developed knowledge graph search and entity linking systems.
+- University of Stellenbosch: Provided theme-matching and summarization algorithms.
+- AAA Insurance: Applied GraphSage for fraud detection in insurance claims.
+
+### Integrations & Compatibility
+
+- External tools/services: Integrates with search platforms, mapping tools, knowledge graphs, and data pipelines as required by client projects.
+- Data import/export options: Customizable based on project needs; supports integration with enterprise data sources.
+- Compliance certifications: Not specified on the website.
+
+## Feature Deep Dive
+
+### Synthetic Data Generation for Navigation
+- How it works: Utilizes machine learning techniques to create artificial datasets that mimic real user navigation patterns, enabling robust testing and training of search algorithms.
+- Benefits: Reduces reliance on sensitive or limited real-world data, improves algorithm robustness, and accelerates development cycles.
+- Requirements: Access to existing navigation data and integration with search or navigation systems.
+
+### Fraud Detection Using GraphSage
+- How it works: Employs graph neural networks to analyze relationships between entities in transaction data, identifying anomalous patterns indicative of fraud.
+- Benefits: Detects complex fraud schemes that traditional methods may miss, scales to large datasets, and adapts to evolving fraud tactics.
+- Requirements: Transaction or claims data in a graph-compatible format.
+
+### Information Extraction Pipelines
+- How it works: Processes unstructured text to extract structured entities and relationships, using natural language processing and machine learning models.
+- Benefits: Automates data entry, improves data quality, and enables advanced analytics.
+- Requirements: Access to unstructured data sources and domain-specific customization.
+
+## Getting Started
+
+- Sign-up process: Not specified on the website; prospective clients should contact Www directly for project inquiries.
+- Implementation timeline: Varies by project scope and requirements.
+- Support options: Not specified on the website; support likely provided as part of project engagement.
+- Contact information:  
+  - Email: ss6365@columbia.com  
+  - GitHub: https://github.com/saisurbehera  
+  - Location: New York City
+
+For more information or to discuss a project, contact Www via email or visit their website at https://www.saisur.me/.
+
+## Site Map
+
+Pages crawled from www.saisur.me (1 total):
+
+- [Sai Surbehera](https://www.saisur.me/)
+
+---
+Generated by: lapis trylapis.com
