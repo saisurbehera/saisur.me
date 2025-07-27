@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+title: "Sai Surbehera"
+description: Machine Learning Engineer at Walmart specializing in synthetic data generation for navigation, with experience in search, prediction, information extraction, and graph-based algorithms; Columbia University MSCS graduate based in NYC.
+last_updated: "July 26, 2025"
+source: "https://www.saisur.me/"
+generated_by: "lapis trylapis.com"
+--------------------------------------------------------------------------------
+
+# Sai Surbehera
+
+Sai Surbehera is a Machine Learning Engineer for Walmart's Algorithmic Search Experience Team, focusing on synthetic data generation for navigation. Holds a Master’s degree in Computer Science from Columbia University and a Bachelor’s degree in Information from the University of Michigan. Professional experience includes:
+
+- Synthetic data generation for navigation and search experience optimization at Walmart Search; developed price prediction algorithms, cold start models, and click-through rate (CTR) prediction models for Walmart Search.
+- Designed and implemented geo-coding algorithms for the Philadelphia Inquirer and Columbia Journalism.
+- Built information extraction pipelines for American Family Insurance, enabling automated data extraction from unstructured sources.
+- Developed relation extraction pipelines at Mindgram, focusing on identifying and structuring relationships within datasets.
+- Created knowledge graph search and entity linking systems for University of Michigan Giving, supporting advanced search and data connectivity.
+- Engineered theme-matching algorithms and summarization systems at University of Stellenbosch, facilitating content categorization and summarization.
+- Applied GraphSage for fraud detection at AAA Insurance, leveraging graph neural networks for anomaly detection in insurance data.
+
+Personal interests include working on independent projects, reading and writing about philosophy, and listening to music during free time.
+
+## Contact
+
+- Email: ss6365@columbia.com
+- GitHub: https://github.com/saisurbehera
+
+## Location
+
+Based in New York City (NYC).
