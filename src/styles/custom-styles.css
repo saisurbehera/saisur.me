@@ -19,6 +19,11 @@
     @apply bg-off-white dark:bg-off-black;
   }
 
+  /* Blue theme */
+  html.theme-blue body:after {
+    background-color: #2544fe;
+  }
+
   /* Inflection Font */
   @font-face {
     font-family: 'grenette_regular';

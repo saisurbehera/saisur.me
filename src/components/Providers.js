@@ -46,15 +46,19 @@ export function Providers() {
       </Head>
 
 
-      {/* Dark Mode Toggler */}
-      <Script id="darkmode-toggler">
+      {/* Theme Toggler - supports light, dark, and blue themes */}
+      <Script id="theme-toggler">
         {`
-          if (localStorage.theme === 'light' || (!('theme' in localStorage))) {
+          if (localStorage.theme === 'blue') {
+            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.add('theme-blue')
+          } else if (localStorage.theme === 'dark') {
+            document.documentElement.classList.remove('theme-blue')
+            document.documentElement.classList.add('dark')
+          } else {
             localStorage.theme = 'light'
             document.documentElement.classList.remove('dark')
-          } else if (localStorage.theme === 'dark') {
-            localStorage.theme = 'dark'
-            document.documentElement.classList.add('dark')
+            document.documentElement.classList.remove('theme-blue')
           }
         `}
       </Script>

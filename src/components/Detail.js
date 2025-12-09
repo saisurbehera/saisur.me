@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef } from 'react';
 
 const Container = forwardRef(
   (props, ref) => {
@@ -12,7 +12,7 @@ const Container = forwardRef(
     )
   }
 )
-Container.displayName = "Container";
+Container.displayName = 'Container';
 
 function ContentContainer(props) {
   return (

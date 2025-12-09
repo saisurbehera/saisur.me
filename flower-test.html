@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lotus</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #container {
+      position: relative;
+      width: 900px;
+      height: 800px;
+    }
+    .char {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', monospace;
+      font-weight: 300;
+    }
+    .controls {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+    button {
+      padding: 10px 20px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="render()">Regenerate</button>
+  </div>
+  <div id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+
+    // Simple ASCII characters only
+    const CHARS = '.+*:;|/\\-=~<>()[]{}#@%&';
+
+    function randomChar() {
+      return CHARS[Math.floor(Math.random() * CHARS.length)];
+    }
+
+    // Pink color gradient for petals
+    function petalColor(t) {
+      // Light pink to deep pink
+      const colors = [
+        [255, 240, 245],  // lavender blush
+        [255, 220, 230],  // light pink
+        [255, 182, 193],  // light pink
+        [255, 150, 180],  // pink
+        [255, 105, 150],  // hot pink
+        [236, 72, 133],   // deep pink
+        [219, 48, 122],   // medium violet red
+      ];
+      const idx = Math.min(Math.floor(t * (colors.length - 1)), colors.length - 2);
+      const frac = (t * (colors.length - 1)) - idx;
+      const c1 = colors[idx];
+      const c2 = colors[idx + 1];
+      const r = Math.round(c1[0] + (c2[0] - c1[0]) * frac);
+      const g = Math.round(c1[1] + (c2[1] - c1[1]) * frac);
+      const b = Math.round(c1[2] + (c2[2] - c1[2]) * frac);
+      return `rgb(${r},${g},${b})`;
+    }
+
+    function generateLotus(cx, cy) {
+      const points = [];
+
+      // === SINGLE PETAL FUNCTION ===
+      // Creates one petal as a curve of characters
+      function addPetal(startX, startY, angle, length, curvature, colorStart, charCount) {
+        for (let i = 0; i < charCount; i++) {
+          const t = i / (charCount - 1);
+
+          // Petal curves outward then tips back
+          const curve = Math.sin(t * Math.PI) * curvature;
+
+          // Position along the petal
+          const dist = t * length;
+
+          // Calculate position with curve
+          const x = startX + Math.sin(angle) * dist + Math.cos(angle) * curve;
+          const y = startY - Math.cos(angle) * dist + Math.sin(angle) * curve * 0.3;
+
+          points.push({
+            x: x,
+            y: y,
+            color: petalColor(colorStart + t * 0.15),
+            size: 16 - t * 4,
+            opacity: 0.9 - t * 0.2,
+            char: randomChar()
+          });
+        }
+      }
+
+      // === CENTER (golden) ===
+      for (let i = 0; i < 5; i++) {
+        const angle = (i / 5) * Math.PI * 2;
+        const r = 8;
+        points.push({
+          x: cx + Math.cos(angle) * r,
+          y: cy + Math.sin(angle) * r * 0.4,
+          color: '#FFD700',
+          size: 14,
+          opacity: 1,
+          char: '*'
+        });
+      }
+
+      // === BACK PETALS (darker, behind) ===
+      // These droop down and outward
+      addPetal(cx - 120, cy + 20, -0.4, 140, 60, 0.7, 10);  // far left back
+      addPetal(cx + 120, cy + 20, 0.4, 140, -60, 0.7, 10);  // far right back
+
+      // === SIDE PETALS (medium layer) ===
+      addPetal(cx - 80, cy, -0.6, 160, 50, 0.5, 12);   // left side
+      addPetal(cx + 80, cy, 0.6, 160, -50, 0.5, 12);   // right side
+      addPetal(cx - 50, cy - 10, -0.3, 150, 35, 0.4, 11);  // inner left
+      addPetal(cx + 50, cy - 10, 0.3, 150, -35, 0.4, 11);  // inner right
+
+      // === FRONT PETALS (brightest, in front) ===
+      addPetal(cx - 25, cy - 5, -0.15, 170, 20, 0.15, 13);  // front left
+      addPetal(cx + 25, cy - 5, 0.15, 170, -20, 0.15, 13);  // front right
+      addPetal(cx, cy - 10, 0, 180, 0, 0.0, 14);            // center front (straight up)
+
+      return points;
+    }
+
+    function render() {
+      container.innerHTML = '';
+
+      const cx = 450;
+      const cy = 500;
+
+      const points = generateLotus(cx, cy);
+
+      // Sort by y (back to front)
+      points.sort((a, b) => a.y - b.y);
+
+      points.forEach(p => {
+        const el = document.createElement('span');
+        el.className = 'char';
+        el.textContent = p.char;
+        el.style.left = p.x + 'px';
+        el.style.top = p.y + 'px';
+        el.style.color = p.color;
+        el.style.fontSize = p.size + 'px';
+        el.style.opacity = p.opacity;
+        container.appendChild(el);
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
