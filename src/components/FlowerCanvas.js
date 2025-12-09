@@ -291,30 +291,8 @@ export function FlowerCanvas({ experienceId = 'default' }) {
   const buffersRef = useRef({})
   const animationRef = useRef(null)
   const [dimensions, setDimensions] = useState({ width: 500, height: 600 })
-  const [windStrength, setWindStrength] = useState(0.05)
-  const targetWind = useRef(0.05)
-  const currentWind = useRef(0.05)
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      // Calculate speed or just presence? 
-      // User said "move the mouse make the wind blow faster"
-      // Simple approach: Boost target wind on move, decay on stop
-      targetWind.current = 0.2 // Max wind
-      
-      // Reset after stop (debounce)
-      clearTimeout(window.windTimeout)
-      window.windTimeout = setTimeout(() => {
-        targetWind.current = 0.05 // Base wind
-      }, 200)
-    }
-    
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      clearTimeout(window.windTimeout)
-    }
-  }, [])
+  const [webglSupported, setWebglSupported] = useState(true)
+  const windStrength = 0.08 // Constant default wind
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -334,12 +312,12 @@ export function FlowerCanvas({ experienceId = 'default' }) {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Initialize WebGL
     let gl = glRef.current
     if (!gl) {
       gl = canvas.getContext('webgl', { alpha: true, antialias: true })
       if (!gl) {
         console.error('WebGL not supported')
+        setWebglSupported(false)
         return
       }
       glRef.current = gl
@@ -451,14 +429,11 @@ export function FlowerCanvas({ experienceId = 'default' }) {
       gl.bindTexture(gl.TEXTURE_2D, buffers.texture)
       gl.uniform1i(buffers.textureLoc, 0)
 
-      // Smooth wind transition
-      currentWind.current += (targetWind.current - currentWind.current) * 0.05
-      
       // Set uniforms
       gl.uniform2f(buffersRef.current.resolutionLoc, dimensions.width, dimensions.height)
       gl.uniform1f(buffersRef.current.timeLoc, time)
       gl.uniform2f(buffersRef.current.centerLoc, cx, cy)
-      gl.uniform1f(buffersRef.current.windLoc, currentWind.current)
+      gl.uniform1f(buffersRef.current.windLoc, windStrength)
 
       // Bind attributes
       gl.bindBuffer(gl.ARRAY_BUFFER, buffers.positionBuffer)
@@ -496,6 +471,10 @@ export function FlowerCanvas({ experienceId = 'default' }) {
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
     }
   }, [dimensions])
+
+  if (!webglSupported) {
+    return null
+  }
 
   return (
     <canvas

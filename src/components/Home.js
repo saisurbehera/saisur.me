@@ -117,11 +117,8 @@ export function Home() {
     <div className={containerClasses}>
       {/* Left side - Content */}
       <div className="flex-1 max-w-md z-10">
-        {/* Header */}
         <div className="mb-12">
-          <Link href="/" className="text-sm font-mono tracking-wider hover:opacity-70 transition-opacity">
-            S.CV
-          </Link>
+          {/* S.CV removed */}
         </div>
 
         {/* Name & Title */}

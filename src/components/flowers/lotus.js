@@ -79,7 +79,7 @@ export function generateLotus(cx, cy, scale) {
           z: finalZ,
           color: col, 
           size: (3 + Math.random() * 4) * scale, 
-          opacity: 0.2 * (1 - u) + 0.1, // Higher opacity
+          opacity: 0.1 * (1 - u) + 0.05, // Lower opacity for subtlety
           charIndex: 126 // Tilde ~
         })
       }
