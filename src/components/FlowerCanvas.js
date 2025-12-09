@@ -292,7 +292,7 @@ export function FlowerCanvas({ experienceId = 'default' }) {
   const animationRef = useRef(null)
   const [dimensions, setDimensions] = useState({ width: 500, height: 600 })
   const [webglSupported, setWebglSupported] = useState(true)
-  const windStrength = 0.08 // Constant default wind
+  const windStrength = 0.04 // Gentle wind
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -367,7 +367,7 @@ export function FlowerCanvas({ experienceId = 'default' }) {
     const scale = Math.min(dimensions.width, dimensions.height) / 450
 
     const generator = GENERATORS[flowerType] || generateRose
-    const points = generator(cx, cy, scale)
+    const points = generator(cx, cy, scale, dimensions.width, dimensions.height)
 
     // Prepare data arrays
     const positions = new Float32Array(points.length * 2)
@@ -380,7 +380,7 @@ export function FlowerCanvas({ experienceId = 'default' }) {
     points.forEach((p, i) => {
       positions[i * 2] = p.x
       positions[i * 2 + 1] = p.y
-      sizes[i] = p.size * 4  // Properly sized characters
+      sizes[i] = p.size * 2.5  // Sharper characters
       colors[i * 3] = p.color[0]
       colors[i * 3 + 1] = p.color[1]
       colors[i * 3 + 2] = p.color[2]

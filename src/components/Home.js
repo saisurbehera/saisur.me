@@ -198,8 +198,8 @@ export function Home() {
         </div>
       </div>
 
-      {/* Right side - Flower Canvas */}
-      <div className="hidden md:flex flex-1 items-center justify-center overflow-hidden">
+      {/* Flower Canvas - Full screen background */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden">
         <FlowerCanvas experienceId={hoveredExperience} />
       </div>
 
