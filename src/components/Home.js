@@ -86,7 +86,10 @@ const educationExperiences = [
   },
 ];
 
-const socialLinks = [{ title: "EMAIL", href: "mailto:ss6365@columbia.edu" }];
+const socialLinks = [
+  { title: "EMAIL", href: "mailto:ss6365@columbia.edu" },
+  { title: "MUSINGS", href: "/musings" },
+];
 
 const externalLinks = [
   { title: "GITHUB", href: "https://github.com/saisurbehera" },
