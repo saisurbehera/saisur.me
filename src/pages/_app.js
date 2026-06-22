@@ -10,10 +10,11 @@ import { Providers } from '../components/Providers'
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const isHomePage = router.pathname === '/'
+  const isMusingsPage = router.pathname.startsWith('/musings')
 
   return (
     <>
-      {!isHomePage && <Nav />}
+      {!isHomePage && !isMusingsPage && <Nav />}
       <Providers />
       <Component {...pageProps} />
     </>
