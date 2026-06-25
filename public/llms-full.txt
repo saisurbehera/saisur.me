@@ -1,0 +1,31 @@
+--------------------------------------------------------------------------------
+title: "Sai Surbehera"
+description: Machine Learning Engineer at Walmart specializing in synthetic data generation for navigation, with experience in search, prediction, information extraction, and graph-based algorithms; Columbia University MSCS graduate based in NYC.
+last_updated: "July 26, 2025"
+source: "https://www.saisur.me/"
+generated_by: "lapis trylapis.com"
+--------------------------------------------------------------------------------
+
+# Sai Surbehera
+
+Sai Surbehera is a Machine Learning Engineer for Walmart's Algorithmic Search Experience Team, specializing in synthetic data generation for navigation. Holds a Master’s in Computer Science from Columbia University and an undergraduate degree in Information from the University of Michigan. Professional experience includes:
+
+- Synthetic data generation for navigation and search experience optimization at Walmart Search, focusing on improving algorithmic search performance.
+- Development of price prediction algorithms, cold start models, and click-through rate (CTR) prediction models at Walmart Search, leveraging machine learning for e-commerce applications.
+- Implementation of geo-coding algorithms at Philadelphia Inquirer and Columbia Journalism, enabling location-based data processing and analysis.
+- Construction of information extraction pipelines at American Family Insurance, automating structured data extraction from unstructured sources.
+- Design of relation extraction pipelines at Mindgram, facilitating identification and mapping of relationships within datasets.
+- Development of knowledge graph search and entity linking systems at University of Michigan Giving, supporting advanced search and semantic data retrieval.
+- Creation of theme-matching algorithms and summarization systems at University of Stellenbosch, enabling automated content analysis and summarization.
+- Fraud detection using GraphSage at AAA Insurance, applying graph neural networks to identify anomalous patterns and prevent fraudulent activity.
+
+Personal interests include working on independent projects, reading and writing about philosophy, and listening to music during free time.
+
+## Contact
+
+- Email: ss6365@columbia.com
+- GitHub: https://github.com/saisurbehera
+
+## Location
+
+Based in New York City (NYC).
