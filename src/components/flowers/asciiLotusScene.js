@@ -1,3 +1,6 @@
+import { buildFlowerGeometry } from './flowerMeshes'
+import { getFlower } from './flowerCatalog'
+
 // Render the moving 3D lotus into a low-resolution color/depth buffer, then
 // redraw it on a fixed ASCII grid. Letters change; they never stretch with petals.
 const VERTEX = `
@@ -19,6 +22,8 @@ const VERTEX = `
   uniform vec3 u_gold;
   uniform vec2 u_resolution;
   uniform float u_largeView;
+  uniform float u_targetHeight;
+  uniform float u_zoom;
   uniform vec2 u_pointer;
   varying vec3 v_color;
   varying float v_alpha;
@@ -50,12 +55,12 @@ const VERTEX = `
     p.xz = mat2(cos(yaw), sin(yaw), -sin(yaw), cos(yaw)) * p.xz;
     n.xz = mat2(cos(yaw), sin(yaw), -sin(yaw), cos(yaw)) * n.xz;
     float pitch = 0.40 + u_pointer.y * 0.065 * u_motion;
-    p.y -= 0.55;
+    p.y -= u_targetHeight;
     float viewY = p.y * cos(pitch) - p.z * sin(pitch);
     float depth = 7.5 - (p.z * cos(pitch) + p.y * sin(pitch));
     float aspect = u_resolution.x / u_resolution.y;
     float lens = mix(min(3.5, aspect * 3.1), min(4.5, aspect * 3.6), u_largeView);
-    gl_Position = vec4(p.x * lens / aspect, viewY * lens, (depth - 0.1) * 1.01 - 0.1, depth);
+    gl_Position = vec4(p.x * lens * u_zoom / aspect, viewY * lens * u_zoom, (depth - 0.1) * 1.01 - 0.1, depth);
     gl_PointSize = kind > 2.5 ? 1.0 : 1.5;
     vec3 facingNormal = normalize(n);
     if (dot(facingNormal, vec3(0.0, 0.4, 1.0)) < 0.0) facingNormal *= -1.0;
@@ -71,7 +76,7 @@ const VERTEX = `
     float sheen = pow(max(0.0, dot(facingNormal, normalize(vec3(-0.4, 0.8, 1.0)))), 16.0);
     float rim = pow(edge, 5.0) * diffuse;
     v_color = mix(v_color, u_highlight, min(0.48, sheen * 0.32 + rim * 0.20));
-    if (kind > 0.5 && kind < 1.5) v_color = u_gold;
+    if (kind > 0.5 && kind < 1.5) v_color = u_gold * a_color.r;
     if (kind > 1.5 && kind < 2.5) v_color = u_stem;
     v_alpha = fade;
     if (kind > 2.5) {
@@ -129,99 +134,6 @@ const ASCII_FRAGMENT = `
   }
 `
 const STRIDE = 13
-const TAU = Math.PI * 2
-const mix = (a, b, t) => a + (b - a) * t
-
-function petalPoint(u, v, petal) {
-  const { angle, length, width, lift, curl, base } = petal
-  const profile = Math.pow(Math.max(0, Math.sin(Math.PI * u)), 0.85)
-  const side = v * width * profile
-  const radius = base + length * u * Math.cos(lift)
-  const height = 0.62 + length * u * Math.sin(lift) + curl * u * u * u + v * v * profile * 0.19
-  return [radius * Math.cos(angle) - side * Math.sin(angle), height, radius * Math.sin(angle) + side * Math.cos(angle)]
-}
-
-function vertex(u, v, petal) {
-  const p = petalPoint(u, v, petal)
-  const pu = petalPoint(Math.min(0.9999, u + 0.001), v, petal)
-  const pv = petalPoint(u, v + 0.001, petal)
-  const a = pu.map((x, i) => x - p[i])
-  const b = pv.map((x, i) => x - p[i])
-  const normal = [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]
-  const norm = Math.hypot(...normal) || 1
-  const edge = Math.pow(Math.abs(v), 2)
-  const blush = Math.min(1, u * 0.82 + edge * 0.3)
-  // Store independent layer shading, blush and edge curvature for the shader.
-  const shade = 0.80 + petal.layer * 0.075 + Math.cos(petal.angle - 0.8) * 0.055
-  const color = [shade, mix(0.96, 0.40, blush), edge]
-  const hash = Math.abs(Math.sin(u * 113 + v * 47 + petal.angle * 17))
-  const glyph = Math.abs(v) > 0.92 ? (v > 0 ? 11 : 12) : 3 + Math.floor(hash * 8)
-  return [...p, ...normal.map(x => x / norm), ...color, glyph, u * u, petal.angle * 3 + petal.layer, 0]
-}
-
-function geometry() {
-  const surface = [], points = [], water = []
-  const layers = [
-    { count: 10, length: 1.65, width: 0.53, lift: 0.10, curl: 0.22, base: 0.20 },
-    { count: 8, length: 1.32, width: 0.47, lift: 0.46, curl: 0.26, base: 0.13 },
-    { count: 6, length: 1.04, width: 0.37, lift: 0.91, curl: 0.16, base: 0.07 },
-  ]
-  layers.forEach((layer, layerIndex) => {
-    for (let petalIndex = 0; petalIndex < layer.count; petalIndex++) {
-      const petal = { ...layer, angle: petalIndex / layer.count * TAU + layerIndex * 0.35, layer: layerIndex }
-      const rows = 28, columns = 18
-      const grid = []
-      for (let row = 0; row <= rows; row++) {
-        grid[row] = []
-        for (let col = 0; col <= columns; col++) grid[row][col] = vertex(Math.max(0.0001, Math.min(0.999, row / rows)), col / columns * 2 - 1, petal)
-      }
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < columns; col++) {
-          surface.push(...grid[row][col], ...grid[row + 1][col], ...grid[row][col + 1], ...grid[row][col + 1], ...grid[row + 1][col], ...grid[row + 1][col + 1])
-        }
-      }
-
-    }
-  })
-  // A small golden seed head and a rooted, green character stem.
-  for (let i = 0; i < 190; i++) {
-    const angle = i * 2.39996, r = Math.sqrt(i / 190) * 0.24
-    points.push(Math.cos(angle) * r, 0.72 + 0.06 * (1 - r / 0.24), Math.sin(angle) * r, 0, 1, 0, 1, 0.82, 0.35, 7 + i % 4, 0, angle, 1)
-  }
-  for (let row = 0; row < 18; row++) {
-    for (let col = 0; col < 7; col++) {
-      const angle = col / 7 * TAU
-      points.push(Math.cos(angle) * 0.036, row / 18 * 0.64, Math.sin(angle) * 0.036, Math.cos(angle), 0, Math.sin(angle), 0.42, 0.63, 0.38, 13, 0, 0, 2)
-    }
-  }
-  // A contained patch of water: broken horizontal strokes, softer toward its
-  // edges and foreground, plus three small ripples where the stem meets it.
-  const noise = (x, y) => {
-    const value = Math.sin(x * 127.1 + y * 311.7) * 43758.5453
-    return value - Math.floor(value)
-  }
-  for (let row = 0; row < 26; row++) {
-    const z = -0.7 + row * 0.12
-    const halfWidth = 2.55 - Math.abs(z - 0.3) * 0.34
-    for (let col = 0; col < 80; col++) {
-      const x = (col / 79 * 2 - 1) * halfWidth
-      const patch = Math.sin(x * 7 + row * 1.2) * 0.5 + 0.5
-      if (noise(col, row) > 0.16 + patch * 0.30) continue
-      const fade = Math.pow(1 - Math.abs(x) / halfWidth, 0.65) * Math.pow(1 - row / 29, 0.9)
-      water.push(x, -0.018, z + Math.sin(x * 3 + row) * 0.015, 0, 1, 0, fade, 0, 0, 15, 0, x * 2 + z * 3, 3)
-    }
-  }
-  for (let ring = 0; ring < 3; ring++) {
-    const radius = 0.30 + ring * 0.32
-    for (let i = 0; i < 100; i++) {
-      if (noise(i, ring + 90) < 0.30) continue
-      const angle = i / 100 * TAU
-      water.push(Math.cos(angle) * radius, -0.012, Math.sin(angle) * radius * 0.55, 0, 1, 0, 1 - ring * 0.17, 0, 0, 14, 0, angle + ring, 3)
-    }
-  }
-  return { surface: new Float32Array(surface), points: new Float32Array(points), water: new Float32Array(water) }
-}
-
 // Independent palettes keep the bloom and water legible on each background.
 const PALETTES = {
   blue: { petalRoot: '#fff1dc', petalTip: '#ff83c1', shadow: '#785296', highlight: '#fff4ec', water: '#a3d9ef', stem: '#8fbc9d', gold: '#ffe3a1' },
@@ -255,10 +167,18 @@ export function createAsciiLotusScene(canvas, theme) {
     for (const name of names) uniforms[name] = gl.getUniformLocation(item, `u_${name}`)
     return { item, uniforms }
   }
-  const surface = program(VERTEX, SURFACE_FRAGMENT, ['time', 'motion', 'lightMode', 'reflection', 'resolution', 'largeView', 'pointer', 'petalRoot', 'petalTip', 'shadow', 'highlight', 'water', 'stem', 'gold'])
+  const surface = program(VERTEX, SURFACE_FRAGMENT, ['time', 'motion', 'lightMode', 'reflection', 'resolution', 'largeView', 'targetHeight', 'zoom', 'pointer', 'petalRoot', 'petalTip', 'shadow', 'highlight', 'water', 'stem', 'gold'])
   const ascii = program(ASCII_VERTEX, ASCII_FRAGMENT, ['scene', 'atlas', 'grid', 'cell', 'time', 'motion', 'lightMode'])
+  let currentTheme = theme
+  let selectedFlower = getFlower('lotus')
   let lightMode = theme === 'light'
-  let palette = Object.fromEntries(Object.entries(PALETTES[theme] || PALETTES.blue).map(([name, color]) => [name, rgb(color)]))
+  function flowerPalette() {
+    const colors = { ...(PALETTES[currentTheme] || PALETTES.blue) }
+    const flowerColors = lightMode ? selectedFlower.light : selectedFlower.palette
+    if (flowerColors) ['petalRoot', 'petalTip', 'shadow', 'highlight', 'gold'].forEach((name, i) => { colors[name] = flowerColors[i] })
+    return Object.fromEntries(Object.entries(colors).map(([name, color]) => [name, rgb(color)]))
+  }
+  let palette = flowerPalette()
   const attributes = ['position', 'normal', 'color', 'data'].map(name => gl.getAttribLocation(surface.item, `a_${name}`))
   const screenAttribute = gl.getAttribLocation(ascii.item, 'a_screen')
   function buffer(data) {
@@ -293,7 +213,15 @@ export function createAsciiLotusScene(canvas, theme) {
   const depthBuffer = gl.createRenderbuffer()
   const quad = buffer(new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]))
   const meshes = {}
-  for (const [name, data] of Object.entries(geometry())) meshes[name] = { buffer: buffer(data), count: data.length / STRIDE }
+  const geometryCache = new Map()
+  function getGeometry(id) {
+    if (!geometryCache.has(id)) {
+      geometryCache.set(id, buildFlowerGeometry(id))
+      if (geometryCache.size > 3) geometryCache.delete(geometryCache.keys().next().value)
+    }
+    return geometryCache.get(id)
+  }
+  for (const [name, data] of Object.entries(getGeometry('lotus'))) meshes[name] = { buffer: buffer(data), count: data.length / STRIDE }
 
   let width = 1, height = 1, dpr = 1, columns = 1, rows = 1, cellX = 1, cellY = 1
   let largeView = false
@@ -332,6 +260,8 @@ export function createAsciiLotusScene(canvas, theme) {
     for (const [name, color] of Object.entries(palette)) gl.uniform3fv(u[name], color)
     gl.uniform2f(u.resolution, width, height)
     gl.uniform1f(u.largeView, largeView ? 1 : 0)
+    gl.uniform1f(u.targetHeight, selectedFlower.target)
+    gl.uniform1f(u.zoom, selectedFlower.zoom)
     gl.uniform2f(u.pointer, pointer[0], pointer[1])
     // Each pass resolves visibility in 3D before any characters are drawn.
     drawMesh(meshes.surface, 1, gl.TRIANGLES)
@@ -425,8 +355,22 @@ export function createAsciiLotusScene(canvas, theme) {
   sync()
   return {
     setTheme(nextTheme) {
+      currentTheme = nextTheme
       lightMode = nextTheme === 'light'
-      palette = Object.fromEntries(Object.entries(PALETTES[nextTheme] || PALETTES.blue).map(([name, color]) => [name, rgb(color)]))
+      palette = flowerPalette()
+      draw()
+    },
+    setFlower(id) {
+      const flower = getFlower(id)
+      if (flower.id === selectedFlower.id) return
+      const geometry = getGeometry(flower.id)
+      for (const [name, data] of Object.entries(geometry)) {
+        gl.bindBuffer(gl.ARRAY_BUFFER, meshes[name].buffer)
+        gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW)
+        meshes[name].count = data.length / STRIDE
+      }
+      selectedFlower = flower
+      palette = flowerPalette()
       draw()
     },
     dispose() {
@@ -444,6 +388,7 @@ export function createAsciiLotusScene(canvas, theme) {
       gl.deleteTexture(sceneTexture)
       gl.deleteFramebuffer(framebuffer)
       gl.deleteRenderbuffer(depthBuffer)
+      geometryCache.clear()
     },
   }
 }

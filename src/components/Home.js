@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FlowerCanvas } from "./FlowerCanvas";
+import { FLOWERS } from "./flowers/flowerCatalog";
 
 // Main work experience
 const mainExperiences = [
@@ -140,6 +141,8 @@ export function Home() {
   const [hoveredExperience, setHoveredExperience] = useState("default");
   const [showInternships, setShowInternships] = useState(false);
   const [theme, setTheme] = useState("blue");
+  const [flowerIndex, setFlowerIndex] = useState(0);
+  const flower = FLOWERS[flowerIndex];
 
   useEffect(() => {
     // Get initial theme from localStorage
@@ -199,7 +202,7 @@ export function Home() {
 
         {/* Character artwork has its own space, including on small screens. */}
         <figure className="lotus-art">
-          <FlowerCanvas theme={theme} />
+          <FlowerCanvas theme={theme} flower={flower.id} />
         </figure>
 
         {/* Work Experience */}
@@ -284,9 +287,25 @@ export function Home() {
         </div>
       </div>
 
-      {/* Top right corner indicator */}
-      <div className="absolute top-6 right-6 md:top-12 md:right-12 z-10">
-        <span className="font-mono text-sm">[*]</span>
+      <div className="flower-controls" role="group" aria-label="Flower selector">
+        <span className="flower-swatch" style={{ backgroundColor: flower.color }} aria-hidden="true" />
+        <select
+          aria-label="Choose a flower"
+          value={flower.id}
+          onChange={(event) => setFlowerIndex(FLOWERS.findIndex((item) => item.id === event.target.value))}
+        >
+          {FLOWERS.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
+        </select>
+        <span className="flower-count" aria-hidden="true">{String(flowerIndex + 1).padStart(2, "0")}/10</span>
+        <button
+          type="button"
+          aria-label="Next flower"
+          title="Next flower"
+          onClick={() => setFlowerIndex((index) => (index + 1) % FLOWERS.length)}
+        >
+          [*]
+        </button>
+        <span className="sr-only" role="status">{flower.name}, {flowerIndex + 1} of {FLOWERS.length}</span>
       </div>
     </div>
   );

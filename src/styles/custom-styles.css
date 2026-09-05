@@ -193,3 +193,80 @@
     transition: none !important;
   }
 }
+
+.flower-controls {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.flower-swatch {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px currentColor;
+}
+
+.flower-controls select {
+  min-height: 36px;
+  max-width: 110px;
+  padding: 6px 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 0;
+}
+
+.flower-controls select option {
+  color: #202024;
+  background: #f5f2e9;
+}
+
+.flower-controls select:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
+.flower-count {
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.flower-controls button {
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 14px;
+  opacity: 0.75;
+  transition: opacity 150ms ease;
+}
+
+.flower-controls button:hover,
+.flower-controls button:focus-visible {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .flower-controls {
+    top: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+    font-size: 10px;
+  }
+
+  .flower-controls button,
+  .flower-controls select {
+    min-height: 44px;
+  }
+
+  .flower-controls button {
+    min-width: 44px;
+  }
+}
