@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { FlowerCanvas } from "./FlowerCanvas";
 
 // Main work experience
@@ -108,6 +107,8 @@ function ExperienceRow({ experience, onHover, isHovered }) {
       }`}
       onMouseEnter={() => onHover(experience.id)}
       onMouseLeave={() => onHover("default")}
+      onFocus={() => onHover(experience.id)}
+      onBlur={() => onHover("default")}
     >
       <span className="font-mono text-sm uppercase tracking-wide">
         {experience.company}
@@ -181,9 +182,9 @@ export function Home() {
         : "min-h-screen bg-off-white text-gray-900 font-mono p-6 md:p-12 flex relative";
 
   return (
-    <div className={containerClasses}>
+    <div className={`${containerClasses} home-page`}>
       {/* Left side - Content */}
-      <div className="flex-1 max-w-md z-10">
+      <div className="flex-1 max-w-md z-10 home-content">
         <div className="mb-12">{/* S.CV removed */}</div>
 
         {/* Name & Title */}
@@ -195,6 +196,11 @@ export function Home() {
             Reflexivity maxxing
           </p>
         </div>
+
+        {/* Character artwork has its own space, including on small screens. */}
+        <figure className="lotus-art">
+          <FlowerCanvas theme={theme} />
+        </figure>
 
         {/* Work Experience */}
         <div className="mb-8">
@@ -208,8 +214,10 @@ export function Home() {
           ))}
 
           <button
+            aria-expanded={showInternships}
+            aria-controls="internship-experiences"
             onClick={() => setShowInternships(!showInternships)}
-            className="flex items-center gap-2 py-1 mt-2 group opacity-70 hover:opacity-100 transition-opacity w-full text-left outline-none focus:outline-none"
+            className="flex items-center gap-2 py-1 mt-2 group opacity-70 hover:opacity-100 transition-opacity w-full text-left"
           >
             <span className="font-mono text-sm uppercase tracking-wide">
               {showInternships ? "[-]" : "[+]"} INTERNSHIPS
@@ -217,6 +225,8 @@ export function Home() {
           </button>
 
           <div
+            id="internship-experiences"
+            inert={showInternships ? undefined : ""}
             className={`overflow-hidden transition-all duration-300 ease-in-out ${showInternships ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"}`}
           >
             <div className="pl-4 border-l border-current/20">
@@ -272,11 +282,6 @@ export function Home() {
             THEME
           </button>
         </div>
-      </div>
-
-      {/* Flower Canvas - Full screen background */}
-      <div className="hidden md:block absolute inset-0 overflow-hidden">
-        <FlowerCanvas experienceId={hoveredExperience} />
       </div>
 
       {/* Top right corner indicator */}
