@@ -3,6 +3,12 @@ import Link from 'next/link';
 
 const musings = [
   {
+    title: 'CODEX IN THE DUNGEON',
+    date: 'OCTOBER 2026',
+    dek: 'Four models, five minutes, one starting dungeon. Recorded NetHack runs you can replay.',
+    href: '/musings/codex-in-the-dungeon',
+  },
+  {
     title: 'REFLEXIVITY MAXXING',
     date: 'ONGOING',
     dek: 'Notes on building systems that change the person using them.',
