@@ -1,0 +1,192 @@
+{
+  "source": "Eldorado research workspace",
+  "accounts": [
+    {
+      "id": "bates",
+      "source_url": "https://www.gutenberg.org/ebooks/2440",
+      "sha256": "1b9ce2135d9624eea8f27e9a6cd631bf0d9d6df009ae782941c74cf5f03d3c26"
+    },
+    {
+      "id": "wallace",
+      "source_url": "https://www.gutenberg.org/ebooks/71436",
+      "sha256": "dfa849a1f066b68dda375fb4f1a8c7426fc8363aac912613b25dad263e927dbd"
+    },
+    {
+      "id": "roosevelt",
+      "source_url": "https://www.gutenberg.org/ebooks/11746",
+      "sha256": "defe65ef04f836e611051b51a5aba094a7afd140fc529a38ae9f1761d5478bb7"
+    },
+    {
+      "id": "herndon",
+      "source_url": "https://www.gutenberg.org/ebooks/57756",
+      "sha256": "4ec4d74e94e0286bd42d947c624c3f59a9017961213823b3a6b23fdf362273f3"
+    },
+    {
+      "id": "gibbon",
+      "source_url": "https://www.gutenberg.org/ebooks/57771",
+      "sha256": "939eb85aeba6e941aba347bb0e736309e80817b98e1964d2a9d6669d3849c1ed"
+    },
+    {
+      "id": "orton",
+      "source_url": "https://www.gutenberg.org/ebooks/19209",
+      "sha256": "cb4027983766bfd96b242fb5f4fde9b840d13d0eb2e3559fec74190e4e237f12"
+    },
+    {
+      "id": "landor",
+      "source_url": "https://www.gutenberg.org/ebooks/22483",
+      "sha256": "1969ae871e26af5ad3385adb9520e76bd1bb73bbf45c0baef7183cbeaeaf5bd7"
+    },
+    {
+      "id": "hardenburg",
+      "source_url": "https://www.gutenberg.org/ebooks/45204",
+      "sha256": "266ff5933ea6782ba3d347a7acbee90d07db707f689110ab74d052908361065c"
+    },
+    {
+      "id": "humboldt-2",
+      "source_url": "https://www.gutenberg.org/ebooks/7014",
+      "sha256": "4c94752810fab7adb5eeeb50327665549b80202e44da34d08d938a4766891a4e"
+    },
+    {
+      "id": "humboldt-3",
+      "source_url": "https://www.gutenberg.org/ebooks/7254",
+      "sha256": "03592d02375548182281263bd146f332cb4a9c169d9bddc31eef433033593d25"
+    },
+    {
+      "id": "spruce-1",
+      "source_url": "https://archive.org/details/notesofbotanisto11908spru",
+      "sha256": "e19a94493c9225e8c30977325e7121a0c32d49c7d1babf2c720577416cf4683b"
+    },
+    {
+      "id": "spruce-2",
+      "source_url": "https://archive.org/details/notesofbotanisto21908spru",
+      "sha256": "12e70c46648f32ce8668e81eb11eb242a3539d1894fb8525fa5f5a9b9e1fec02"
+    },
+    {
+      "id": "edwards",
+      "source_url": "https://archive.org/details/voyageupriverama00edwauoft",
+      "sha256": "d308d8a8dc442d41c52cca802980d7b308f2ad0be326c152ba3c85e6fbf4a3b2"
+    },
+    {
+      "id": "agassiz",
+      "source_url": "https://archive.org/details/ajourneyinbrazil00agas",
+      "sha256": "a48b786b8575055344e15651da3f1c7f51731b305090572afd333c1246dff537"
+    },
+    {
+      "id": "keller",
+      "source_url": "https://archive.org/details/amazonmadeirariv00kelluoft",
+      "sha256": "c8a00123355b0789bcc66bf96d4aa3e33127680426aa02aa6ad96a3e4cc46a2d"
+    },
+    {
+      "id": "smith",
+      "source_url": "https://archive.org/details/brazilamazonscoa00smituoft",
+      "sha256": "726e4e14681724bf07aeeb4c3a8af5f94ea5fb1977f930ca44d183005692603d"
+    },
+    {
+      "id": "smyth-lowe",
+      "source_url": "https://archive.org/details/narrativeofjourn00smyt",
+      "sha256": "a809509c10dda59f1a4d1504536ab9f56127a64e3580d504f7d62b526f5de6b2"
+    },
+    {
+      "id": "maw",
+      "source_url": "https://archive.org/details/journalofpassage00mawh",
+      "sha256": "f397f6cf6cefb04b8f85791b2026f5dd06bd3a8a7130a567628218f13200c4bd"
+    },
+    {
+      "id": "marcoy-1",
+      "source_url": "https://archive.org/details/travelsinsoutham01marcuoft",
+      "sha256": "219eee6da9b3f10bc152f7bfd14cd5ce55fccfa94e9e538176cc0134c1ffc270"
+    },
+    {
+      "id": "marcoy-2",
+      "source_url": "https://archive.org/details/travelsinsoutham02marcuoft",
+      "sha256": "a13c02cd669c462b3cbb60d45c601500231d626959ddc17be9e2f4ea7d868955"
+    },
+    {
+      "id": "simson",
+      "source_url": "https://archive.org/details/travelsinwildsof00sims",
+      "sha256": "4c7e380493677b34948c8106e57f65f797045f921daf5b12dd4b5ba0d1810d75"
+    },
+    {
+      "id": "coudreau",
+      "source_url": "https://archive.org/details/voyageautapajoz00coudgoog",
+      "sha256": "adb4827fb23886ce455dbd09ae9a6e004ba3cb4e2aabe173679156ff99bd1da4"
+    },
+    {
+      "id": "markham",
+      "source_url": "https://archive.org/details/expeditionsintov00markrich",
+      "sha256": "1ec7a8dc5b85aa3c3aa146c17594ca20329f4d0f65dbcb970d59989aacf5b6c1"
+    },
+    {
+      "id": "koch-grunberg",
+      "source_url": "https://archive.org/details/ZweiJahre",
+      "sha256": "d4aac6c6a2b7afd522b06669a445fb74981a930f89e235cbe510586a0d199721"
+    },
+    {
+      "id": "condamine",
+      "source_url": "https://archive.org/details/b30514174",
+      "sha256": "cab35aad680dc2075dceb7c0270efc6724a8360939a0a020932254b061668a36"
+    },
+    {
+      "id": "crevaux",
+      "source_url": "https://archive.org/details/voyagesdanslam00crevuoft",
+      "sha256": "59845c7988fa5c998c4f4c471b8821b9e06c9164926beb4cce487146e9f23099"
+    },
+    {
+      "id": "spix-martius",
+      "source_url": "https://archive.org/details/bub_gb_tW9BAAAAcAAJ",
+      "sha256": "2166e7d5f70620fa153d9649e8eb44b414c893df035710323aa5ab0faa9b340d"
+    },
+    {
+      "id": "whiffen",
+      "source_url": "https://www.gutenberg.org/ebooks/55540",
+      "sha256": "2326317294b587c7e345cfe6b150ddc43aee0a64e7c712121799313f99a41750"
+    }
+  ],
+  "artworks": [
+    {
+      "id": "orton-napo",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/19209/images/209.png",
+      "sha256": "b1b0004af5f6251da40e82c1a49658a468637cf8dbc69810be6261a2de415eb1"
+    },
+    {
+      "id": "orton-santarem",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/19209/images/248.png",
+      "sha256": "a44fe6ee3fe70959d0e1e8f5491d3a3f889929e20d3c0af4b1278a9af51da182"
+    },
+    {
+      "id": "orton-para",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/19209/images/253.png",
+      "sha256": "0506e68c490e92d76e196cb877f617e6a4c5b6ebac551682a8dcc1172e6300ab"
+    },
+    {
+      "id": "orton-canoe",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/19209/images/263.png",
+      "sha256": "9ba3fe79057b96ef178dab4f395a6855f78e612721a291ab761965b2e1e28abf"
+    },
+    {
+      "id": "orton-quito",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/19209/images/059.png",
+      "sha256": "81c64423ee088c35d4d0890bc0fe2fa02b20884eaa9c499998947f1152e132c1"
+    },
+    {
+      "id": "bates-forest",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/2440/images/fig4.jpg",
+      "sha256": "bd13494fa5326821db01317e58bf7588ab77d1b0723bb1d3d1afb27e642c63d3"
+    },
+    {
+      "id": "bates-mountains",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/2440/images/fig13.jpg",
+      "sha256": "d76c3ebb135b583e0b87386afd025d3aa1b78a1b710464e2442374577f7f4712"
+    },
+    {
+      "id": "bates-palm",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/2440/images/fig3.jpg",
+      "sha256": "7d8d50b117d01534eb027758e226107d06413c750af2d940695cc0f94891fda8"
+    },
+    {
+      "id": "bates-toucan",
+      "image_source_url": "https://www.gutenberg.org/cache/epub/2440/images/fig33.jpg",
+      "sha256": "022cfe0660c7e4c9a08f5982ffc1b71705ee7132bef88605e8bb7b5740ea0c52"
+    }
+  ]
+}

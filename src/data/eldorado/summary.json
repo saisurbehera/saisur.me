@@ -1,0 +1,16 @@
+{
+  "accounts": 28,
+  "words": 4242880,
+  "places": 96,
+  "mention_passages": 8080,
+  "journeys": 20,
+  "selected_stops": 72,
+  "schematic_legs": 52,
+  "river_hypotheses": 43,
+  "unresolved_route_legs": 9,
+  "explorer_groups": 25,
+  "unresolved_coordinates": 10,
+  "unresolved_place_candidates": 505,
+  "conflicts": 1,
+  "river_features": 75
+}
