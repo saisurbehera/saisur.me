@@ -1,0 +1,212 @@
+{
+  "title": "A memory you can search",
+  "model": {
+    "name": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "parameters": 494032768,
+    "decoder_bits": 4,
+    "embedding_bits": 8,
+    "weight_group_size": 16
+  },
+  "storage": {
+    "packed_directory_bytes": 663453540,
+    "fp16_equivalent_bytes": 1644319720.0,
+    "deployed_index_bytes": 208677470,
+    "reduction": 0.5965179204929805,
+    "scope": "one model + 5183-document layer-KV search index; excludes separate all-layer prefix-bank experiment",
+    "baseline": "unpadded real-token fp16 K/V plus fp16 model and same ancillary/tokenizer bytes",
+    "model_directory_bytes": 454776070,
+    "document_count": 5183,
+    "mb_definition": 1000000
+  },
+  "language": {
+    "wiki": {
+      "relative_ppl_increase": 0.04336274761688519,
+      "ci95": [
+        0.03835202143510065,
+        0.04780731493137891
+      ],
+      "bootstrap_unit": "Wikipedia article",
+      "groups": 33,
+      "repeats": 2000
+    },
+    "arc": {
+      "baseline": 0.5625,
+      "selected": 0.5625,
+      "questions": 256,
+      "arc_delta": 0.0,
+      "arc_ci95": [
+        -0.02734375,
+        0.027441406249999467
+      ]
+    }
+  },
+  "search": {
+    "original_ndcg": 0.6707316525608418,
+    "float_keys": {
+      "recall1": 0.5307606263982103,
+      "recall5": 0.7271812080536912,
+      "recall10": 0.7769574944071588,
+      "mrr10": 0.6349659103014808,
+      "ndcg10": 0.6629075124153782,
+      "ndcg10_ci95": [
+        0.6176026219069405,
+        0.7089706845471611
+      ],
+      "query_count": 298
+    },
+    "two_bit_keys": {
+      "recall1": 0.5067114093959731,
+      "recall5": 0.7176733780760627,
+      "recall10": 0.7677293064876958,
+      "mrr10": 0.6186041866410994,
+      "ndcg10": 0.6473719411241029,
+      "ndcg10_ci95": [
+        0.6028783748276862,
+        0.6932624248591298
+      ],
+      "query_count": 298
+    },
+    "four_bit_keys": {
+      "bits": 4,
+      "metrics": {
+        "recall1": 0.5405480984340044,
+        "recall5": 0.7280201342281879,
+        "recall10": 0.7828299776286354,
+        "mrr10": 0.6433272078406306,
+        "ndcg10": 0.6694501609694915,
+        "ndcg10_ci95": [
+          0.6253765000959643,
+          0.7139492592600347
+        ],
+        "query_count": 298
+      },
+      "top1_agreement": 0.9261744966442953,
+      "ndcg_delta": 0.006542648554113327,
+      "delta_ci95": [
+        -0.0010479432789073956,
+        0.01421615164252437
+      ]
+    },
+    "method": "BM25 top 50, then token-level key-to-key reranking at layer 11; matching quantized query and document encoder.",
+    "cohort": "298 previously exposed SciFact queries; 4-bit precision audit is post-hoc descriptive."
+  },
+  "recall": {
+    "conditions": {
+      "retrieved_packed": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.9708630437264916,
+          1.0
+        ],
+        "count": 128,
+        "interval": "Wilson 95% binomial interval"
+      },
+      "oracle_packed": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.9708630437264916,
+          1.0
+        ],
+        "count": 128,
+        "interval": "Wilson 95% binomial interval"
+      },
+      "wrong_packed": {
+        "accuracy": 0.0,
+        "ci95": [
+          0.0,
+          0.029136956273508416
+        ],
+        "count": 128,
+        "interval": "Wilson 95% binomial interval"
+      },
+      "no_memory": {
+        "accuracy": 0.0,
+        "ci95": [
+          0.0,
+          0.029136956273508416
+        ],
+        "count": 128,
+        "interval": "Wilson 95% binomial interval"
+      }
+    },
+    "retrieval": {
+      "accuracy": 1.0,
+      "ci95": [
+        0.9708630437264916,
+        1.0
+      ],
+      "count": 128,
+      "interval": "Wilson 95% binomial interval"
+    },
+    "wiki": {
+      "relative_ppl_increase": 0.03799588477136462,
+      "ci95": [
+        0.030817304060389017,
+        0.042954172631693176
+      ],
+      "bootstrap_unit": "Wikipedia article",
+      "groups": 33,
+      "repeats": 2000
+    },
+    "source_count": 256,
+    "questions": 128,
+    "source_seed": 20261101,
+    "query_seed": 20261102,
+    "key_bits": 4,
+    "value_bits": 4,
+    "scope": "Separate bank of all-layer generation prefixes for synthetic station-code facts; excluded from the 5183-document search package."
+  },
+  "caveats": [
+    "Storage precision reduction does not reduce mathematical parameter count.",
+    "WikiText and SciFact results are regression measurements on previously inspected cohorts.",
+    "The 4/8-bit search precision audit is post-hoc descriptive; the original 2-bit selection stays frozen.",
+    "Generic kernels unpack one weight matrix or selected document/prefix; peak working memory differs from packed bytes.",
+    "Public-model pretraining contamination unknown; novel synthetic facts are allowed source evidence."
+  ],
+  "provenance": {
+    "source": "bulbul/experiments/results/storage-study/summary.json",
+    "versions": {
+      "python": "3.12.2",
+      "faiss": "1.10.0",
+      "packages": {
+        "torch": "2.3.1",
+        "transformers": "4.53.0",
+        "numpy": "1.26.4",
+        "scipy": "1.15.2",
+        "safetensors": "0.4.3"
+      }
+    },
+    "code_sha256": {
+      "memorizingtransfornmers.py": "fd16d8c4d21a36f8a070061b5c02015b81edc763d5f126b61982271861f7fd90",
+      "value_memory_study.py": "0be517ea751a8520393439f02d60a68d0e26d7215157adcb8d3741b9b556ed8f",
+      "knn_memory.py": "77c21d95cae19f06f65c09752b5b22dc8fa0197d1dfbd276d6c842ff538beb48",
+      "packed.py": "6b915de7a77e9fe20442fa07e56bb67ad23cb4ea887f1cf421f796368f2ab177",
+      "research_report.py": "52b88be540dc16cd72a8b9c1ce434bcba29a4b53b53741c7772570037108a64b",
+      "ann_benchmark.py": "db3fe0faef3ce1b71ea50c17d44ec9b80ac6d823698552e21db5341daeedb71b",
+      "precision_audit.py": "0277350283255abe43c6964218b777d78fd7d8b501a28c7e0fb3b26f9f658127",
+      "compact_ann_study.py": "68c5e06bde2804fc16f9680c790574d372ec19a17aa7d6d7158a8cfa4efeff15",
+      "retrieval_study.py": "7261d3f2804bdeb8d5d0a203496ab6960cc698b84ac026b4b7e5d15c2890fecb",
+      "compression_study.py": "e67bc2e7458591b44e0d1b9335dd165b276083925f8e148e8fd9efe9a8a507a6",
+      "research_common.py": "2454fa154f8bffdc76a4ff34010c47e71fdab3f20aad814826adb1d31d4fa3c5",
+      "single_layer_memory_study.py": "795105ac639c67aa9cbe16b5096a07750464a675e5ca2e3a653ade22f0a812d8",
+      "quantized_model.py": "4a00cfc8f880ab31f6c0a9e02eff0b92dcdec200a4f68699c133a6d7b8e85209",
+      "faiss_check.py": "b600d0b5b2cb7937791beb4c54b84d1b1e2a1d6d0538849bb13501bf9b64ea8f",
+      "memory_search.py": "a1e8867de43cd6a7ef745b9db5e95a25f9a9b976a0e8515d2c7ffe55b8cfc328",
+      "compact_retrieval_study.py": "c637f20e9f42c6fd4af431e91fd5e663e50384103f828d5ee4bb8a1b002e7705",
+      "qwen_model.py": "9d1a222e94e289102b0c520ff7a2da0231973286e58d7ce13cc67be3ac3f2409",
+      "native_memory_demo.py": "9d7c8817d7f7a39e3017d27e2757163bd4b0613c13e2c80ddf8f1fefa4a9044d",
+      "hessian_quantization.py": "f74ec95b5b6e9341204a4d963200f9f63dafff7f48aad80060e1aaca399947d7",
+      "distillation_study.py": "6216c916ab12e657f68f8f8da7ec13f5a62c2f0743f8fb24d574e25d1be02b23",
+      "qwen_mod_knn.py": "c0e65025509f221f3b22be5ac09ce14055157930a618b5bf32735b6d6fce907f",
+      "compression_experiment.py": "8b82beef8af0647113081f5fb506cce328a2d0ff7ff8df5d30ac8357122c1636",
+      "packed_cache_study.py": "7dd8a3f3b93a1b5e50fdf4076ad8e53820861706ca8ac1ba633ca5c76c83fd1b",
+      "__init__.py": "e1f2487fdf64d5df4a8b24b06528f91e8d33cc11d7e93241b349cf8408ea0ce4",
+      "compact_search.py": "7bc65df0eea189ce059df32d40a3a73d956ac03285fb45acf7aa9c844eca4d8f",
+      "combined_storage_study.py": "ce10c99fab092986f721fa62183d5fa1f290b54197c85ffb7fa4a260a72e32c1",
+      "native_memory_study.py": "8deab4a6657fd64e28ddaee4092b436395721927411c3380f82cd961ddd820cf",
+      "weight_storage_study.py": "63c200e12041158f50b0e54b49a5f15b863f30bd56ec66d6396919b49ef4dfee",
+      "storage_report.py": "5d6d008f6cec5ebf3d7d75309599be8b4fc680b0cb816001d91a434b51b08aba"
+    }
+  }
+}

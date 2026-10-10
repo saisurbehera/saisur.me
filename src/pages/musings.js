@@ -3,6 +3,12 @@ import Link from 'next/link';
 
 const musings = [
   {
+    title: 'A MEMORY YOU CAN SEARCH',
+    date: 'OCTOBER 2026',
+    dek: 'A small model, a searchable memory, and 60% less storage. What survived compression, and where it could be useful.',
+    href: '/musings/searchable-memory',
+  },
+  {
     title: 'CODEX IN THE DUNGEON',
     date: 'OCTOBER 2026',
     dek: 'Four models, five minutes, one starting dungeon. Recorded NetHack runs you can replay.',
