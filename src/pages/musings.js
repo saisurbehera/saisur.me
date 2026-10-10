@@ -3,6 +3,12 @@ import Link from 'next/link';
 
 const musings = [
   {
+    title: 'A MEMORY YOU CAN SEARCH',
+    date: 'OCTOBER 2026',
+    dek: 'A small model, a searchable memory, and 60% less storage. What survived compression, and where it could be useful.',
+    href: '/musings/searchable-memory',
+  },
+  {
     title: 'ELDORADO',
     date: 'OCTOBER 2026',
     dek: 'Historical accounts, river paths, and the evidence connecting them. A searchable atlas of Amazon expeditions.',
