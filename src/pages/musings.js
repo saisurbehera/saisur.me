@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import MusingSeo from '../components/musings/MusingSeo';
 import Link from 'next/link';
 
 const musings = [
@@ -31,12 +31,7 @@ const musings = [
 export default function Musings() {
   return (
     <>
-      <Head>
-        <title>Musings — Sai Surbehera</title>
-        <meta name="description" content="Sai Surbehera’s notes, experiments, and interactive projects." />
-        <link rel="canonical" href="https://www.saisur.me/musings" />
-        <meta property="og:title" content="Musings — Sai Surbehera" key="title" />
-      </Head>
+      <MusingSeo slug="index" />
       <main className="h-[100dvh] overflow-y-auto bg-[#2544fe] p-6 font-mono text-white md:p-12">
         <div className="flex min-h-[calc(100vh-3rem)] max-w-2xl flex-col md:min-h-[calc(100vh-6rem)]">
           <header className="mb-12">

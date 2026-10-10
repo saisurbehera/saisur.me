@@ -1,0 +1,65 @@
+{
+  "index": {
+    "path": "/musings",
+    "title": "Musings — Sai Surbehera",
+    "description": "Notes, experiments, and interactive projects by Sai Surbehera.",
+    "image": "/static/musings/index-v1.png",
+    "alt": "Musings by Sai Surbehera: notes, ideas, and experiments on a blue background.",
+    "lines": ["Notes, ideas,", "experiments."],
+    "subtitle": ["Small observations.", "Things worth taking apart."],
+    "footer": "SAISUR.ME / MUSINGS"
+  },
+  "codex-in-the-dungeon": {
+    "path": "/musings/codex-in-the-dungeon",
+    "title": "Letting Codex play NetHack",
+    "description": "Four OpenAI models, five minutes, one starting dungeon. A small Codex experiment with real NetHack recordings, results, and interactive replays.",
+    "socialDescription": "GPT-6.1 Sol reached floor 7. Astra reached floor 6. Watch the recorded runs and see how the experiment works.",
+    "image": "/static/oriole/social.png",
+    "alt": "Letting Codex play NetHack: four models, five minutes, seven floors. A recorded dungeon screen appears beside the title."
+  },
+  "searchable-memory": {
+    "path": "/musings/searchable-memory",
+    "title": "A memory you can search",
+    "description": "A local experiment with a 494M-parameter model: compress its weights, search its stored keys and values, and test whether retrieved memory helps it answer.",
+    "socialDescription": "663.5 MB for a model and a searchable memory. How it works, what survived compression, and what the experiment actually proves.",
+    "image": "/static/musings/searchable-memory-v1.png",
+    "alt": "A memory you can search. A storage chart compares the 1,644.3 MB FP16 equivalent with a 663.5 MB packed model and search index.",
+    "lines": ["A memory", "you can search."],
+    "subtitle": ["A small model. A source library.", "60% less disk storage."],
+    "footer": "ARCHITECTURE / EXPERIMENTS / APPLICATIONS"
+  },
+  "cities-in-the-weights": {
+    "path": "/musings/cities-in-the-weights",
+    "title": "Hiding 200 cities in a neural network",
+    "documentTitle": "Hiding 200 cities in a neural network | Sai Surbehera",
+    "description": "A detailed walkthrough of Jane Street’s neural-network puzzle, a published solver’s approach, and our 200-city MoE with exact byte verification and large-scale rejection tests.",
+    "socialDescription": "From a hidden phrase to 200 cities: reverse engineering the puzzle, understanding its ReLU comparisons, and building a larger neural memory.",
+    "image": "/static/musings/cities-in-the-weights-v1.png",
+    "alt": "Cities in the weights. A grid of 200 city outputs has one highlighted cell, illustrating a neural circuit recognizing Paris.",
+    "lines": ["Cities in", "the weights."],
+    "subtitle": ["200 cities. One neural circuit.", "Recognition, taken apart."],
+    "footer": "A WALKTHROUGH OF NEURAL MEMORY"
+  },
+  "eldorado": {
+    "path": "/musings/eldorado",
+    "title": "Eldorado: tracing the Amazon",
+    "documentTitle": "Eldorado: tracing the Amazon | Sai Surbehera",
+    "description": "Search 28 historical Amazon expedition volumes and explore source-linked river journeys, places, and original illustrations.",
+    "socialDescription": "Historical accounts, river paths, and the evidence connecting them. A searchable atlas of Amazon expeditions.",
+    "image": "/static/musings/eldorado-v1.png",
+    "alt": "Eldorado: tracing the Amazon. An abstract branching river drawing accompanies an invitation to explore historical accounts and source-linked journeys.",
+    "lines": ["Tracing", "the Amazon."],
+    "subtitle": ["Historical accounts. River paths.", "The evidence connecting them."],
+    "footer": "ELDORADO / A SEARCHABLE ATLAS"
+  },
+  "reflexivity-maxxing": {
+    "path": "/musings/reflexivity-maxxing",
+    "title": "Reflexivity Maxxing",
+    "description": "A poem after Bhagavad Gita 18.73: memory restored, doubt loosened, and the decision to act.",
+    "image": "/static/musings/reflexivity-maxxing-v1.png",
+    "alt": "Reflexivity Maxxing. A circular diagram connects notice, reflect, and act, alongside the line: the chariot stayed still; the archer changed.",
+    "lines": ["Reflexivity", "maxxing."],
+    "subtitle": ["The chariot stayed still.", "The archer changed."],
+    "footer": "AFTER BHAGAVAD GITA 18.73"
+  }
+}

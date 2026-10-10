@@ -1,9 +1,9 @@
+import MusingSeo from '../../components/musings/MusingSeo';
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import results from '../../../public/static/searchable-memory/results.json';
 
-const route = 'https://www.saisur.me/musings/searchable-memory';
 const mb = bytes => (bytes / 1e6).toLocaleString('en-US', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
 const conditions = [
   { id: 'retrieved_packed', label: 'Retrieved memory', explanation: 'Search finds the source. The model reads its compressed, all-layer prefix and completes the four-digit code.' },
@@ -64,15 +64,8 @@ function StorageFigure() {
 export default function SearchableMemory() {
   return (
     <>
+      <MusingSeo slug="searchable-memory" />
       <Head>
-        <title>A memory you can search — Sai Surbehera</title>
-        <meta name="description" content="A local experiment with a 494M-parameter model: compress its weights, search its stored keys and values, and test whether retrieved memory helps it answer." />
-        <meta property="og:title" content="A memory you can search" key="title" />
-        <meta property="og:description" content="663.5 MB for a model and a searchable memory. How it works, what survived compression, and what the experiment actually proves." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={route} />
-        <meta name="twitter:card" content="summary" />
-        <link rel="canonical" href={route} />
         <link rel="stylesheet" href="/static/searchable-memory/page.css" />
       </Head>
       <div className="memory-page">

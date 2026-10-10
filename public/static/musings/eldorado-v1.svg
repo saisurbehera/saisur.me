@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#2544fe"/>
+<g font-family="DejaVu Sans Mono,monospace" fill="white">
+<text x="58" y="63" font-size="15" fill="#c9d1ff">SAI SURBEHERA / MUSINGS</text>
+<text x="55" y="208" font-size="60" fill="#fff">Tracing</text><text x="55" y="290" font-size="60" fill="#fff">the Amazon.</text>
+<text x="58" y="373" font-size="22" fill="#e2e7ff">Historical accounts. River paths.</text><text x="58" y="410" font-size="22" fill="#f1fa8c">The evidence connecting them.</text>
+<text x="58" y="568" font-size="15" fill="#c9d1ff">ELDORADO / A SEARCHABLE ATLAS</text>
+<rect x="704" y="111" width="444" height="438" rx="3" fill="#12172a" stroke="#7385ff"/><text x="730" y="148" font-size="15" fill="#f1fa8c">SOURCE-LINKED JOURNEYS</text><g fill="none" stroke="#94d8ff" stroke-width="4" stroke-linecap="round"><path d="M746 242 C798 206 822 307 882 283 S980 341 1040 277 S1095 277 1119 258"/><path d="M882 283 C850 330 842 366 802 402"/><path d="M974 305 C955 354 1010 396 1062 418"/><path d="M832 271 C852 233 848 209 876 191"/></g><circle cx="772" cy="239" r="6" fill="#f1fa8c" stroke="#12172a" stroke-width="2"/><circle cx="882" cy="283" r="6" fill="#f1fa8c" stroke="#12172a" stroke-width="2"/><circle cx="974" cy="305" r="6" fill="#f1fa8c" stroke="#12172a" stroke-width="2"/><circle cx="1071" cy="271" r="6" fill="#f1fa8c" stroke="#12172a" stroke-width="2"/><circle cx="802" cy="402" r="6" fill="#f1fa8c" stroke="#12172a" stroke-width="2"/><text x="730" y="495" font-size="16" fill="#e2e7ff">Accounts → places → evidence</text>
+</g></svg>

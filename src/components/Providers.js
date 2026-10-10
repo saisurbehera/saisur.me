@@ -41,8 +41,6 @@ export function Providers() {
           media="(prefers-color-scheme: dark)"
         />
 
-        {/* OpenGraph */}
-        <meta property="og:title" content="Sai Surbehera" key="title" />
       </Head>
 
 

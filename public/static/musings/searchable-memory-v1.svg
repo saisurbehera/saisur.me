@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#2544fe"/>
+<g font-family="DejaVu Sans Mono,monospace" fill="white">
+<text x="58" y="63" font-size="15" fill="#c9d1ff">SAI SURBEHERA / MUSINGS</text>
+<text x="55" y="208" font-size="60" fill="#fff">A memory</text><text x="55" y="290" font-size="60" fill="#fff">you can search.</text>
+<text x="58" y="373" font-size="22" fill="#e2e7ff">A small model. A source library.</text><text x="58" y="410" font-size="22" fill="#f1fa8c">60% less disk storage.</text>
+<text x="58" y="568" font-size="15" fill="#c9d1ff">ARCHITECTURE / EXPERIMENTS / APPLICATIONS</text>
+<rect x="704" y="111" width="444" height="438" rx="3" fill="#12172a" stroke="#7385ff"/><text x="730" y="148" font-size="15" fill="#f1fa8c">MODEL + SEARCHABLE MEMORY</text><text x="730" y="218" font-size="14" fill="#e2e7ff">FP16 EQUIVALENT</text><text x="730" y="250" font-size="24" fill="#fff">1,644.3 MB</text><rect x="730" y="271" width="390" height="23" fill="#a8b5ff"/><text x="730" y="353" font-size="14" fill="#e2e7ff">PACKED STORAGE</text><text x="730" y="385" font-size="24" fill="#fff">663.5 MB</text><rect x="730" y="406" width="157.36" height="23" fill="#f1fa8c"/><text x="730" y="495" font-size="13" fill="#e2e7ff">5,183 passages / same parameter count</text>
+</g></svg>

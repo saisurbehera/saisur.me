@@ -1,26 +1,15 @@
+import MusingSeo from '../../components/musings/MusingSeo';
 import Head from 'next/head';
 import Link from 'next/link';
 import OrioleReplay, { DepthChart } from '../../components/musings/OrioleReplay';
 import results from '../../data/oriole-results.json';
 
-const route = 'https://www.saisur.me/musings/codex-in-the-dungeon';
 
 export default function CodexInTheDungeon() {
   return (
     <>
+      <MusingSeo slug="codex-in-the-dungeon" />
       <Head>
-        <title>Letting Codex play NetHack — Sai Surbehera</title>
-        <meta name="description" content="Four OpenAI models, five minutes, one starting dungeon. A small Codex experiment with real NetHack recordings, results, and interactive replays." />
-        <meta property="og:title" content="Letting Codex play NetHack" key="title" />
-        <meta property="og:description" content="GPT-6.1 Sol reached floor 7. Astra reached floor 6. Watch the recorded runs and see how the experiment works." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={route} />
-        <meta property="og:image" content="https://www.saisur.me/static/oriole/social.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Letting Codex play NetHack: four models, five minutes, seven floors." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href={route} />
         <link rel="stylesheet" href="/static/oriole/page.css" />
       </Head>
       <div className="oriole-musing">
